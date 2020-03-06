@@ -10,6 +10,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
+using Proxy.Middleware;
 
 namespace Proxy
 {
@@ -26,6 +27,8 @@ namespace Proxy
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
+
+            services.AddCustomSwagger();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -39,6 +42,8 @@ namespace Proxy
             app.UseHttpsRedirection();
 
             app.UseRouting();
+
+            app.UseCustomSwagger();
 
             app.UseAuthorization();
 
