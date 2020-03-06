@@ -1,5 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using Proxy.Models;
+using Proxy.Core.Models;
 using System.Threading;
 using System.Threading.Tasks;
 

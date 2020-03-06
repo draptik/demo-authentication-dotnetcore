@@ -1,4 +1,4 @@
-﻿namespace Proxy.Models
+﻿namespace Proxy.Core.Models
 {
     public class BestellungAufgegeben
     {

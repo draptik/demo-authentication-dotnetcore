@@ -11,7 +11,17 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="9.0.0" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="5.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Core\Security\Hashing\" />
+    <Folder Include="Mapping\" />
+    <Folder Include="Services\" />
+    <Folder Include="Persistence\" />
+    <Folder Include="Security\Hashing\" />
+    <Folder Include="Security\Tokens\" />
   </ItemGroup>
 
 
