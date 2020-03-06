@@ -16,9 +16,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Core\Security\Hashing\" />
     <Folder Include="Mapping\" />
-    <Folder Include="Services\" />
     <Folder Include="Persistence\" />
     <Folder Include="Security\Hashing\" />
     <Folder Include="Security\Tokens\" />
