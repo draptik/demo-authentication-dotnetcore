@@ -15,9 +15,9 @@ namespace API.Middleware
 			{
 				cfg.SwaggerDoc("v1", new OpenApiInfo
 				{
-					Title = "Proxy API",
+					Title = "Backend API",
 					Version = "v1",
-					Description = "Example API of Proxy / Authentication Server",
+					Description = "Example Backend API",
 				});
 
 				//cfg.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
@@ -51,8 +51,8 @@ namespace API.Middleware
 		{
 			app.UseSwagger().UseSwaggerUI(options =>
 			{
-				options.SwaggerEndpoint("/swagger/v1/swagger.json", "Proxy API");
-				options.DocumentTitle = "Proxy API";
+				options.SwaggerEndpoint("/swagger/v1/swagger.json", "Backend API");
+				options.DocumentTitle = "Backend API";
 			});
 
 			return app;

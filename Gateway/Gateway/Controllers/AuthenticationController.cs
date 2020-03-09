@@ -24,12 +24,12 @@ namespace Gateway.Controllers
         [HttpPost]
         public async Task<IActionResult> LoginAsync([FromBody] UserCredentialsResource userCredentials)
         {
-            if (!ModelState.IsValid)
+            if (userCredentials == null || !ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
 
-            var response = await _authenticationService.CreateAccessTokenAsync(userCredentials.Email, userCredentials.Password);
+            var response = await _authenticationService.CreateAccessTokenAsync(userCredentials.Email, userCredentials.Password).ConfigureAwait(false);
             if (!response.Success)
             {
                 return BadRequest(response.Message);
@@ -44,12 +44,12 @@ namespace Gateway.Controllers
         [HttpPost]
         public async Task<IActionResult> RefreshTokenAsync([FromBody] RefreshTokenResource refreshTokenResource)
         {
-            if (!ModelState.IsValid)
+            if (refreshTokenResource == null || !ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
 
-            var response = await _authenticationService.RefreshTokenAsync(refreshTokenResource.Token, refreshTokenResource.UserEmail);
+            var response = await _authenticationService.RefreshTokenAsync(refreshTokenResource.Token, refreshTokenResource.UserEmail).ConfigureAwait(false);
             if (!response.Success)
             {
                 return BadRequest(response.Message);
@@ -63,7 +63,7 @@ namespace Gateway.Controllers
         [HttpPost]
         public IActionResult RevokeToken([FromBody] RevokeTokenResource revokeTokenResource)
         {
-            if (!ModelState.IsValid)
+            if (revokeTokenResource == null || !ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
