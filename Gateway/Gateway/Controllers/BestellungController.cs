@@ -2,9 +2,11 @@
 using Gateway.Core.Models;
 using System.Threading;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 
 namespace Gateway.Controllers
 {
+    [Authorize]
     [ApiController]
     [Route("api/[controller]")]
     public class BestellungController : ControllerBase
