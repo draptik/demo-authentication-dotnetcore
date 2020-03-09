@@ -25,7 +25,7 @@ namespace Client.Controllers
             {
                 Thread.Sleep(10);
                 return true;
-            });
+            }).ConfigureAwait(false);
 
             return Ok("ok");
         }
