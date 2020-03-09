@@ -1,10 +1,12 @@
 ﻿using API.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System.Threading;
 using System.Threading.Tasks;
 
 namespace API.Controllers
 {
+    [Authorize]
     [ApiController]
     [Route("api/[controller]")]
     public class BestellungController : ControllerBase
@@ -21,7 +23,7 @@ namespace API.Controllers
             {
                 Thread.Sleep(10);
                 return true;
-            });
+            }).ConfigureAwait(false);
 
             return Ok("ok");
         }
