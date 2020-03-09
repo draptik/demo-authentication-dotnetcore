@@ -11,7 +11,7 @@ namespace Gateway.Persistence
         {
             context.Database.EnsureCreated();
 
-            if (context.Roles.Count() == 0)
+            if (!context.Roles.Any())
             {
 
                 var roles = new List<Role>
@@ -24,7 +24,7 @@ namespace Gateway.Persistence
                 context.SaveChanges();
             }
 
-            if (context.Users.Count() == 0)
+            if (!context.Users.Any())
             {
                 var users = new List<User>
                 {

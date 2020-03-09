@@ -14,7 +14,7 @@ namespace Gateway.Persistence
 
         public async Task CompleteAsync()
         {
-            await _context.SaveChangesAsync();
+            await _context.SaveChangesAsync().ConfigureAwait(false);
         }
     }
 }

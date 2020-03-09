@@ -40,7 +40,7 @@ namespace Gateway.Security.Hashing
             }
             if (providedPassword == null)
             {
-                throw new ArgumentNullException("providedPassword");
+                throw new ArgumentNullException(nameof(providedPassword));
             }
             byte[] src = Convert.FromBase64String(passwordHash);
             if ((src.Length != 0x31) || (src[0] != 0))

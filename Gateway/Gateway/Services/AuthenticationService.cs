@@ -21,7 +21,7 @@ namespace Gateway.Services
 
         public async Task<TokenResponse> CreateAccessTokenAsync(string email, string password)
         {
-            var user = await _userService.FindByEmailAsync(email);
+            var user = await _userService.FindByEmailAsync(email).ConfigureAwait(false);
 
             if (user == null || !_passwordHasher.PasswordMatches(password, user.Password))
             {
@@ -47,7 +47,7 @@ namespace Gateway.Services
                 return new TokenResponse(false, "Expired refresh token.", null);
             }
 
-            var user = await _userService.FindByEmailAsync(userEmail);
+            var user = await _userService.FindByEmailAsync(userEmail).ConfigureAwait(false);
             if (user == null)
             {
                 return new TokenResponse(false, "Invalid refresh token.", null);
